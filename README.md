@@ -93,6 +93,11 @@ To build and use the bot, you'll need to:
  4. Set up a [Railway](https://railway.app/) or [Heroku Account.](https://heroku.com)
 
  
+## Application Demo :film_strip:
+
+
+https://user-images.githubusercontent.com/101701760/210450784-01c707cc-b5e5-4b12-97c5-bc7ca9ba7dc2.mp4
+
 
 
 ## How to run the Application :question:
