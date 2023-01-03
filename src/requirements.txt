@@ -7,5 +7,5 @@ opencv_python==4.7.0.68
 Pillow==9.4.0
 SQLAlchemy==1.4.45
 Werkzeug==2.2.2
-psycopg2==2.9.5
+psycopg2-binary
 python-dotenv==0.21.0

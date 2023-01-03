@@ -10,11 +10,19 @@ RUN apt-get -y update && apt-get install -y \
 
 RUN pip install --upgrade setuptools 
 
-COPY . .
+COPY requirements.txt .
 
 RUN pip install -r requirements.txt
 
+ADD . . 
+
 
 # RUN python init_db
+ARG POSTGRES="postgresql://postgres:nbnvTZvJEYEZnnSUKoHy@containers-us-west-114.railway.app:7101/railway"
+ARG SQLITE="sqlite:///../database.db"
+ARG SECRET_KEY="secret_key"
+ARG DATABASE_MODE="postgres"
+
+# RUN python init_db.py
 
 CMD python backend/app.py

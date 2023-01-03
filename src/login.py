@@ -4,7 +4,7 @@ from models import Users, db
 from werkzeug.security import check_password_hash
 
 login = Blueprint(
-    "login", __name__, template_folder="../frontend", static_folder="../frontend"
+    "login", __name__, template_folder="./frontend", static_folder="../frontend"
 )
 login_manager = LoginManager()
 login_manager.init_app(login)

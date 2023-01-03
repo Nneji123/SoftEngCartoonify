@@ -14,7 +14,7 @@ from register import register
 load_dotenv()
 
 
-app = Flask(__name__, static_folder="../frontend/static")
+app = Flask(__name__, static_folder="./frontend/static")
 
 
 POSTGRES = os.getenv("POSTGRES")
@@ -22,14 +22,14 @@ SQLITE = os.getenv("SQLITE")
 DATABASE_MODE = os.getenv("DATABASE_MODE")
 
 
-app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
+app.config["SECRET_KEY"] ="secret_key"
 
 if DATABASE_MODE == "postgres":
     app.config["SQLALCHEMY_DATABASE_URI"] = POSTGRES
 else:
     app.config["SQLALCHEMY_DATABASE_URI"] = SQLITE
 
-
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:nbnvTZvJEYEZnnSUKoHy@containers-us-west-114.railway.app:7101/railway"
 login_manager = LoginManager()
 login_manager.init_app(app)
 db.init_app(app)

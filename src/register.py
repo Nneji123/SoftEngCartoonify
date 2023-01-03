@@ -2,8 +2,9 @@ from flask import Blueprint, redirect, render_template, request, url_for
 from flask_login import LoginManager
 from models import Users, db
 from werkzeug.security import generate_password_hash
+import sqlalchemy
 
-register = Blueprint("register", __name__, template_folder="../frontend")
+register = Blueprint("register", __name__, template_folder="./frontend")
 login_manager = LoginManager()
 login_manager.init_app(register)
 

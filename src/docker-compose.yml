@@ -1,0 +1,9 @@
+services:
+  app:
+    build: .
+    container_name: simple-python-sttapi
+    command: python app.py
+    ports:
+      - 8080:3000
+    volumes:
+      - .:/app

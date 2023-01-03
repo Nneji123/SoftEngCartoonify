@@ -10,7 +10,7 @@ from models import Users, db
 from PIL import Image
 from utils import inference
 
-home = Blueprint("home", __name__, template_folder="../frontend")
+home = Blueprint("home", __name__, template_folder="./frontend")
 login_manager = LoginManager()
 login_manager.init_app(home)
 
