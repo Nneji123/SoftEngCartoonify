@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>View Your Images with Cartoonify!</title>
+  <link rel="icon" type="image/ico" href="{{ url_for('static',filename='logo.png') }}">
+
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+  <link rel="stylesheet" href="https://unpkg.com/blocks.css/dist/blocks.min.css" />
+</head>
+<body>
+	<!-- partial:index.partial.html -->
+
+	
+	<h2 class="center">Cartoonify Application</h2>
+	<h2>Here are your images {{ current_user.username }}!</h2> 
+	<h3>Uploaded Image          |              Cartoonified Image</h3>
+	<div>
+
+	
+	<img class="picture"  src="data:image/png;base64, {{ image_b64 }}" width="200" height="200" alt="Uploaded Image">
+
+	
+	<img class="picture"  src="data:image/png;base64, {{ car_b64 }}" width="200" height="200" alt="Cartoonified Image">
+		
+<br>
+	<button><a href="/home">Try Again?</a></button>
+</br>
+<br>
+	<button><a href="/logout">Logout</a></button>
+</br>
+</div>
+
+	
+
+<footer>
+	<p>
+		Created with <i class="fa fa-heart"></i> by
+		<a target="_blank" href="https://florin-pop.com">Group C 500L Computer Engineering.</a>
+		You can find the project files and documentation
+		<a target="_blank" href="https://github.com/Nneji123/SoftEngCartoonify">here</a>.
+	</p>
+</footer>
+</html>
