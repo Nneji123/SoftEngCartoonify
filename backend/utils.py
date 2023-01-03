@@ -7,10 +7,12 @@ from PIL import Image
 
 _sess_options = ort.SessionOptions()
 _sess_options.intra_op_num_threads = os.cpu_count()
-MODEL_SESS = ort.InferenceSession("model.onnx", _sess_options, providers=["CPUExecutionProvider"]
+MODEL_SESS = ort.InferenceSession(
+    "model.onnx", _sess_options, providers=["CPUExecutionProvider"]
 )
 
 from flask_login import current_user
+
 
 def preprocess_image(image: Image) -> np.ndarray:
     image = np.array(image)
@@ -35,8 +37,6 @@ def inference(image: np.ndarray) -> Image:
     output = (np.squeeze(results[0]) + 1.0) * 127.5
     output = np.clip(output, 0, 255).astype(np.uint8)
     filename = str(current_user.id) + ".jpg"
-    cv2.imwrite("./static/"+filename, output)
+    cv2.imwrite("./static/" + f"{str(current_user.id)}/" + filename, output)
     # os.remove("instance/image.jpg")
     return "Output Saved!"
-
-

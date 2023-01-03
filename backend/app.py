@@ -1,20 +1,20 @@
-from flask import Flask, render_template, request, redirect, url_for
+import os
+
 import sqlalchemy
+from dotenv import load_dotenv
+from flask import Flask, redirect, render_template, request, url_for
 from flask_login import LoginManager
-
-from models import db, Users
-
+from home import home
 from index import index
 from login import login
 from logout import logout
+from models import Users, db
 from register import register
-from home import home
-from dotenv import load_dotenv
-import os
+
 load_dotenv()
 
 
-app = Flask(__name__, static_folder='../frontend/static')
+app = Flask(__name__, static_folder="../frontend/static")
 
 
 POSTGRES = os.getenv("POSTGRES")
@@ -22,12 +22,12 @@ SQLITE = os.getenv("SQLITE")
 DATABASE_MODE = os.getenv("DATABASE_MODE")
 
 
-app.config['SECRET_KEY'] = os.getenv("SECRET_KEY")
+app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 
 if DATABASE_MODE == "postgres":
-    app.config['SQLALCHEMY_DATABASE_URI'] = POSTGRES
+    app.config["SQLALCHEMY_DATABASE_URI"] = POSTGRES
 else:
-    app.config['SQLALCHEMY_DATABASE_URI'] = SQLITE
+    app.config["SQLALCHEMY_DATABASE_URI"] = SQLITE
 
 
 login_manager = LoginManager()
@@ -41,12 +41,14 @@ app.register_blueprint(logout)
 app.register_blueprint(register)
 app.register_blueprint(home)
 
+
 @login_manager.user_loader
 def load_user(user_id):
     try:
         return Users.query.get(int(user_id))
     except (sqlalchemy.exc.OperationalError) as e:
-        return render_template('error.html', e="Database not found")
+        return render_template("error.html", e="Database not found")
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=3000, debug=True)
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=3000, debug=True)
