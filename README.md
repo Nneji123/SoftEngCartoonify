@@ -34,6 +34,8 @@
   - [Repository File Structure :file\_folder:](#repository-file-structure-file_folder)
   - [Flowchart :chart:](#flowchart-chart)
   - [Use Case Diagram :chart\_with\_upwards\_trend:](#use-case-diagram-chart_with_upwards_trend)
+    - [Module Relationship](#module-relationship)
+    - [Model Schema](#model-schema)
   - [Application Demo :film\_strip:](#application-demo-film_strip)
   - [How to run the Application :question:](#how-to-run-the-application-question)
   - [Tests :keyboard:](#tests-keyboard)
