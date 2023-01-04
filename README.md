@@ -4,6 +4,7 @@
 [![HTML](https://img.shields.io/badge/HTML-black.svg?style=flat&logo=html5&logoColor=white)](https://github.com/Nneji123/SoftEngCartoonify)
 [![CSS](https://img.shields.io/badge/CSS-blue.svg?style=flat&logo=css3&logoColor=white)](https://github.com/Nneji123/SoftEngCartoonify)
 [![Javascript](https://img.shields.io/badge/Javascript-yellow.svg?style=flat&logo=html5&logoColor=white)](https://github.com/Nneji123/SoftEngCartoonify)
+[![Postgres](https://img.shields.io/badge/Postgres-darkblue.svg?style=flat&logo=html5&logoColor=white)](https://github.com/Nneji123/SoftEngCartoonify)
 ![hosted](https://img.shields.io/badge/Railway-430098?style=flat&logo=railway&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-blue?style=flat&logo=docker&logoColor=white)
 [![Gitpod](https://img.shields.io/badge/Gitpod-orange?style=flat&logo=gitpod&logoColor=white)](https://gitpod.io/#https://github.com/Nneji123/SoftEngCartoonify)
