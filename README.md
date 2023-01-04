@@ -9,7 +9,7 @@
 ![Docker](https://img.shields.io/badge/Docker-blue?style=flat&logo=docker&logoColor=white)
 [![Gitpod](https://img.shields.io/badge/Gitpod-orange?style=flat&logo=gitpod&logoColor=white)](https://gitpod.io/#https://github.com/Nneji123/SoftEngCartoonify)
 ![reposize](https://img.shields.io/github/repo-size/Nneji123/SoftEngCartoonify)
-[![tests](https://github.com/Nneji123/SoftEngCartoonify/actions/workflows/test.yml/badge.svg)](https://github.com/Nneji123/SoftEngCartoonify/actions/workflows/test.yml)
+[![Python Tests](https://github.com/Nneji123/SoftEngCartoonify/actions/workflows/tests.yml/badge.svg)](https://github.com/Nneji123/SoftEngCartoonify/actions/workflows/tests.yml)
 [![CodeQL](https://github.com/Nneji123/SoftEngCartoonify/actions/workflows/codeql.yml/badge.svg)](https://github.com/Nneji123/SoftEngCartoonify/actions/workflows/codeql.yml)
 
 
@@ -26,18 +26,19 @@
 
 ## Contents :page_with_curl:
 - [Cartoonify](#cartoonify)
-  * [About :speech_balloon:](#about--speech-balloon-)
-  * [Contents :page_with_curl:](#contents--page-with-curl-)
-  * [Features :star2:](#features--star2-)
-  * [Tools Used :wrench:](#tools-used--tool-)
-  * [Repository File Structure :file_folder:](#repository-file-structure--file-folder-)
-  * [Flowchart :chart:](#flowchart--chart-)
-  * [Application Demo :film_strip:](#application-demo--film-strip-)
-  * [How to run the Application :question:](#how-to-run-the-application--question-)
-  * [Tests :keyboard:](#tests--keyboard-)
-  * [Deployment :computer:](#deployment--computer-)
-- [Todo :bookmark_tabs:](#todo--bookmark-tabs-)
-- [License :page_with_curl:](#license--page-with-curl-)
+  - [About :speech\_balloon:](#about-speech_balloon)
+    - [Link: https://softengcartoonify-production.up.railway.app/login](#link-httpssoftengcartoonify-productionuprailwayapplogin)
+  - [Contents :page\_with\_curl:](#contents-page_with_curl)
+  - [Features :star2:](#features-star2)
+  - [Tools Used :wrench:](#tools-used-wrench)
+  - [Repository File Structure :file\_folder:](#repository-file-structure-file_folder)
+  - [Flowchart :chart:](#flowchart-chart)
+  - [Application Demo :film\_strip:](#application-demo-film_strip)
+  - [How to run the Application :question:](#how-to-run-the-application-question)
+  - [Tests :keyboard:](#tests-keyboard)
+  - [Deployment :computer:](#deployment-computer)
+- [Todo :bookmark\_tabs:](#todo-bookmark_tabs)
+- [License :page\_with\_curl:](#license-page_with_curl)
 
 
 
