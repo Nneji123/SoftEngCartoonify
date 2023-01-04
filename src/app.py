@@ -4,6 +4,10 @@ import sqlalchemy
 from dotenv import load_dotenv
 from flask import Flask, redirect, render_template, request, url_for
 from flask_login import LoginManager
+import sys
+
+# sys.path.append(os.path.abspath(os.path.join("..", "config")))
+
 from home import home
 from index import index
 from login import login
@@ -50,5 +54,7 @@ def load_user(user_id):
         return render_template("error.html", e="Database not found")
 
 
+
+
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=os.getenv("PORT", default=5000))
+    app.run(host="0.0.0.0", port=os.getenv("PORT", default=9000), debug=True)

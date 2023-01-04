@@ -2,6 +2,8 @@ import base64
 import os
 import shutil
 from io import BytesIO
+# import sys
+# sys.path.insert(0, './src')
 
 import numpy as np
 from flask import Blueprint, redirect, render_template, request, url_for
@@ -28,8 +30,14 @@ def upload_file():
     try:
         if os.path.exists(f"./static/{str(current_user.id)}/"):
             shutil.rmtree(f"./static/{str(current_user.id)}/")
+        else:
+            pass
         os.mkdir(f"./static/{str(current_user.id)}")
-        image.save(f"./static/{str(current_user.id)}/{image.filename}")
+        try:
+            image.save(f"./static/{str(current_user.id)}/{image.filename}")
+        except IsADirectoryError:
+            return render_template("error.html", e="Please upload a valid image file before clicking upload.")
+            
         image_b64 = base64.b64encode(image.getvalue()).decode("utf-8")
 
         ref = Image.open(f"./static/{(current_user.id)}/{image.filename}")
