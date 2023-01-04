@@ -16,6 +16,12 @@ RUN pip install -r requirements.txt
 
 ADD . . 
 
+ENV POSTGRES postgresql://postgres:nbnvTZvJEYEZnnSUKoHy@containers-us-west-114.railway.app:7101/railway
+ENV SQLITE sqlite:///../database.db
+ENV SECRET_KEY secret_key 
+ENV DATABASE_MODE sqlite
+ENV PORT 5000
+
 RUN python init_db.py
 
 CMD python app.py

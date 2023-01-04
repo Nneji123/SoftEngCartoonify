@@ -24,16 +24,17 @@ app = Flask(__name__, static_folder="./frontend/static")
 POSTGRES = os.getenv("POSTGRES")
 SQLITE = os.getenv("SQLITE")
 DATABASE_MODE = os.getenv("DATABASE_MODE")
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 
-app.config["SECRET_KEY"] ="secret_key"
+app.config["SECRET_KEY"] =SECRET_KEY
 
 if DATABASE_MODE == "postgres":
     app.config["SQLALCHEMY_DATABASE_URI"] = POSTGRES
 else:
     app.config["SQLALCHEMY_DATABASE_URI"] = SQLITE
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:DfAMdWviDBdxdmCvsADo@containers-us-west-37.railway.app:7088/railway"
+# app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:DfAMdWviDBdxdmCvsADo@containers-us-west-37.railway.app:7088/railway"
 login_manager = LoginManager()
 login_manager.init_app(app)
 db.init_app(app)

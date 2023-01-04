@@ -1,7 +1,7 @@
 services:
   app:
     build: .
-    container_name: simple-python-sttapi2
+    container_name: simple-python-sttapi1
     command: python app.py
     ports:
       - 8080:5000
