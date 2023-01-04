@@ -141,6 +141,13 @@ Explanation:
 
 
 ## Use Case Diagram :chart_with_upwards_trend:
+### Module Relationship
+![packages](https://user-images.githubusercontent.com/101701760/210594020-037a160c-8666-43f2-87fd-66e41ce36984.png)
+
+
+### Model Schema
+![classes](https://user-images.githubusercontent.com/101701760/210594036-d97167d5-b894-42b7-86a9-735a238f4de4.png)
+
 
  
 ## Application Demo :film_strip:
