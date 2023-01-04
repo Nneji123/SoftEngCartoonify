@@ -1,6 +1,9 @@
 # Cartoonify Web Application 
 [![Language](https://img.shields.io/badge/Python-darkblue.svg?style=flat&logo=python&logoColor=white)](https://www.python.org)
 [![Framework](https://img.shields.io/badge/Flask-darkgreen.svg?style=flat&logo=flask&logoColor=white)](https://github.com/Nneji123/SoftEngCartoonify)
+[![HTML](https://img.shields.io/badge/HTML-black.svg?style=flat&logo=html5&logoColor=white)](https://github.com/Nneji123/SoftEngCartoonify)
+[![CSS](https://img.shields.io/badge/CSS-blue.svg?style=flat&logo=css3&logoColor=white)](https://github.com/Nneji123/SoftEngCartoonify)
+[![Javascript](https://img.shields.io/badge/Javascript-yellow.svg?style=flat&logo=html5&logoColor=white)](https://github.com/Nneji123/SoftEngCartoonify)
 ![hosted](https://img.shields.io/badge/Railway-430098?style=flat&logo=railway&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-blue?style=flat&logo=docker&logoColor=white)
 [![Gitpod](https://img.shields.io/badge/Gitpod-orange?style=flat&logo=gitpod&logoColor=white)](https://gitpod.io/#https://github.com/Nneji123/SoftEngCartoonify)
@@ -13,7 +16,9 @@
 ## About :speech_balloon:
 >A Web application deployed using `Railway` that uses Python, Flask, SQLAlchemy, SQLite or Postgres Database to handle user authentication and manage a database of uploaded images. The application features a login and registration page, and allows users to upload and cartoonify images. The use of Python and relevant libraries enables efficient and secure handling of user authentication and image management.
 
-Link: https://softengcartoonify-production.up.railway.app/login
+
+
+### Link: https://softengcartoonify-production.up.railway.app/login
 
 
 
@@ -135,7 +140,7 @@ https://user-images.githubusercontent.com/101701760/210450784-01c707cc-b5e5-4b12
 
 ## How to run the Application :question:
 <details>
-    <summary><b>How to Run the application locally.<b></summary>
+    <summary><b>How to Run the application locally.</b></summary>
 
 
 To run the application locally do the following:
@@ -172,7 +177,7 @@ db.create_all()
 
 - A local sqlite database named database.db will be created.
 
-2. Test your changes locally by running `python app.pu` from the src folder of this project.
+2. Test your changes locally by running `python app.py` from the src folder of this project.
 
 </details>
 
@@ -193,8 +198,24 @@ cd SoftEngCartoonify
 cd src
 ```
 
-3. Edit and rename the `.envexample` file to `.env` and store your keys there.
+3. Edit the `app.py` file and add the keys directly instead of running from the environment
 
+Example:
+```python
+POSTGRES = "postgresql://postgres:password@url:port/railway"
+SQLITE = "sqlite:///../database.db"
+SECRET_KEY="secret_key"
+DATABASE_MODE="sqlite"
+
+app.config["SECRET_KEY"] =SECRET_KEY
+
+if DATABASE_MODE == "postgres":
+    app.config["SQLALCHEMY_DATABASE_URI"] = POSTGRES
+else:
+    app.config["SQLALCHEMY_DATABASE_URI"] = SQLITE
+```
+
+The above is just an example.
 
 4. Run the docker compose command
 ```docker
@@ -215,7 +236,7 @@ And then the application should be running on `127.0.0.1:5000`
 
 ## Tests :keyboard:
 <details> 
-  <summary><b>Test Bot</b></summary>
+  <summary><b>Test Application</b></summary>
 
 To test the API functions do the following:
 1. Clone the repository:
@@ -235,11 +256,17 @@ pytest tests
 ```
 </details>
 
+<details> 
+  <summary><b>Performing Load Tests with Locust</b></summary>
+
+
+ </details> 
+
 ## Deployment :computer:
 
 <details>
-    <summary><b>Deploy the Bot to Railway<b></summary>
-Click the button below to deploy the bot to railway
+    <summary><b>Deploy the Application to Railway<b></summary>
+Click the button below to deploy the application to railway
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/k_WXDI?referralCode=ZYOf2M)
 
