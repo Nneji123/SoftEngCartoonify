@@ -33,7 +33,7 @@ if DATABASE_MODE == "postgres":
 else:
     app.config["SQLALCHEMY_DATABASE_URI"] = SQLITE
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:nbnvTZvJEYEZnnSUKoHy@containers-us-west-114.railway.app:7101/railway"
+# app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:nbnvTZvJEYEZnnSUKoHy@containers-us-west-114.railway.app:7101/railway"
 login_manager = LoginManager()
 login_manager.init_app(app)
 db.init_app(app)

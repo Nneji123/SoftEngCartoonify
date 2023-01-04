@@ -189,14 +189,12 @@ cd src
 
 - Run python
 ```bash
-python3
-from app import db
-db.create_all()
+python init_db.py
 ```
 
 - A local sqlite database named database.db will be created.
 
-2. Test your changes locally by running `python app.py` from the src folder of this project.
+2. Test your changes locally by running `python app.py` from the src folder of this project. Once this is done you can go to `127.0.0.1:5000` to see the application running.
 
 </details>
 
