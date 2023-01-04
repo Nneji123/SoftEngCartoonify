@@ -30,8 +30,8 @@
   * [Contents :page_with_curl:](#contents--page-with-curl-)
   * [Features :star2:](#features--star2-)
   * [Tools Used :wrench:](#tools-used--tool-)
-  * [Flowchart :chart:](#flowchart--chart-)
   * [Repository File Structure :file_folder:](#repository-file-structure--file-folder-)
+  * [Flowchart :chart:](#flowchart--chart-)
   * [Application Demo :film_strip:](#application-demo--film-strip-)
   * [How to run the Application :question:](#how-to-run-the-application--question-)
   * [Tests :keyboard:](#tests--keyboard-)
@@ -64,6 +64,37 @@ Here are the features of the web application described in the flowchart:
 - SQLite
 - Docker
 
+## Repository File Structure :file_folder:
+```bash
+├── LICENSE
+├── README.md
+├── requirements.txt
+└── src
+    ├── app.py # Main application module
+    ├── docker-compose.yml
+    ├── Dockerfile
+    ├── frontend # Frontend files
+    │   ├── display_image.html
+    │   ├── error.html
+    │   ├── home.html
+    │   ├── register_and_login.html
+    │   └── static # Folder for static files
+    │       ├── logo.png
+    │       ├── script.js
+    │       └── style.css
+    ├── home.py # Module for handling homepage
+    ├── index.py # For indexing
+    ├── login.py # Module for handling user login
+    ├── logout.py # Module for handling user logout
+    ├── model.onnx # Model responsible for cartoonifying the image
+    ├── models.py # Module for handling user models
+    ├── register.py # Module for handling user registration
+    ├── requirements.txt # Requirements file
+    ├── static # Folder for storing uploaded user images
+    │   └── placeholder
+    └── utils.py # Utility functions for cartoonifying images
+
+```
 
 
 ## Flowchart :chart:
@@ -104,41 +135,6 @@ Explanation:
 - From the "Home" node (G), the user can either upload an image or log out of the application.
   - If the user chooses to upload an image, the "Create User Folder" operation (H) is performed, followed by the "Upload Image" operation (I). The "Cartoonify Image" operation (J) is then performed, followed by the "Display Images" operation (K) to show the uploaded and cartoonified images to the user.
   - If the user chooses to log out, the "Logout" operation (L) is performed and the "Delete User Folder" operation (M) is performed. The flowchart then goes back to the "Start" node (A).
-
-
-
-
-## Repository File Structure :file_folder:
-```bash
-├── LICENSE
-├── README.md
-├── requirements.txt
-└── src
-    ├── app.py # Main application module
-    ├── docker-compose.yml
-    ├── Dockerfile
-    ├── frontend # Frontend files
-    │   ├── display_image.html
-    │   ├── error.html
-    │   ├── home.html
-    │   ├── register_and_login.html
-    │   └── static # Folder for static files
-    │       ├── logo.png
-    │       ├── script.js
-    │       └── style.css
-    ├── home.py # Module for handling homepage
-    ├── index.py # For indexing
-    ├── login.py # Module for handling user login
-    ├── logout.py # Module for handling user logout
-    ├── model.onnx # Model responsible for cartoonifying the image
-    ├── models.py # Module for handling user models
-    ├── register.py # Module for handling user registration
-    ├── requirements.txt # Requirements file
-    ├── static # Folder for storing uploaded user images
-    │   └── placeholder
-    └── utils.py # Utility functions for cartoonifying images
-
-```
 
 
  
