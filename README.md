@@ -209,21 +209,16 @@ cd SoftEngCartoonify
 cd src
 ```
 
-3. Edit the `app.py` file and add the keys directly instead of running from the environment
+3. Edit the `Dockerfile` file and add the keys directly instead of running from the environment
 
 Example:
-```python
-POSTGRES = "postgresql://postgres:password@url:port/railway"
-SQLITE = "sqlite:///../database.db"
-SECRET_KEY="secret_key"
-DATABASE_MODE="sqlite"
+```docker
+ENV POSTGRES postgresql://postgres:password@url:port/railway
+ENV SQLITE sqlite:///../database.db
+ENV SECRET_KEY secret_key 
+ENV DATABASE_MODE sqlite
+ENV PORT 5000
 
-app.config["SECRET_KEY"] =SECRET_KEY
-
-if DATABASE_MODE == "postgres":
-    app.config["SQLALCHEMY_DATABASE_URI"] = POSTGRES
-else:
-    app.config["SQLALCHEMY_DATABASE_URI"] = SQLITE
 ```
 
 The above is just an example.
@@ -309,6 +304,10 @@ pip install locust
 Click the button below to deploy the application to railway
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/Fr7c3B?referralCode=ZYOf2M)
+
+If deploy fails, change the root directory to `src` in the railway application settings page as shown in the image below:
+
+
 
 
 
