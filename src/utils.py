@@ -7,8 +7,7 @@ from PIL import Image
 
 _sess_options = ort.SessionOptions()
 _sess_options.intra_op_num_threads = os.cpu_count()
-MODEL_SESS = ort.InferenceSession(
-    "model.onnx", _sess_options, providers=["CPUExecutionProvider"]
+MODEL_SESS = ort.InferenceSession("model.onnx", _sess_options, providers=["CPUExecutionProvider"]
 )
 
 from flask_login import current_user

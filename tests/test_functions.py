@@ -3,16 +3,20 @@ from PIL import Image
 import os
 import numpy as np
 from ..src.models import Users
+from pathlib import Path
+
+location = os.path.join(os.path.dirname(__file__), 'test.jpg')
+# my_file = (location / 'test.jpg').resolve()
 
 def test_inference():
-    image = Image.open("test.jpg")
+    image = Image.open(location)
     inference_test(image)
     assert os.path.exists("output.jpg")
     os.remove("output.jpg")
     
 ## write a function to test the preprocess_image function
 def test_preprocess_image():
-    image = Image.open("test.jpg")
+    image = Image.open(location)
     image = preprocess_image(image)
     assert image.shape == (1, 120, 168, 3)
     assert image.dtype == np.float32
