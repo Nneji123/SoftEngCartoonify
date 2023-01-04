@@ -308,6 +308,7 @@ Click the button below to deploy the application to railway
 If deploy fails, change the root directory to `src` in the railway application settings page as shown in the image below:
 
 
+![Screenshot (294)](https://user-images.githubusercontent.com/101701760/210624138-bfa0ed48-9d0b-4676-a04c-8badcb173926.png)
 
 
 
