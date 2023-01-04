@@ -110,24 +110,33 @@ Explanation:
 
 ## Repository File Structure :file_folder:
 ```bash
-├───.github # Github Workflows
-│   └───workflows
-├── app.json # For Deploying to Heroku
-├── data
-│   └── Rap_lyrics.txt # lyrics file
-├── docker-compose.yml # For Containerization with Docker
-├── Dockerfile
-├── LICENSE 
+├── LICENSE
 ├── README.md
-├── Procfile # For deploying to Heroku and Railway
 ├── requirements.txt
-├── src
-│   ├── bot.py # Tweet bot
-│   ├── __init__.py
-│   ├── server.py # flask server
-├── tests # Tests folder
-    ├── __init__.py
-    └── test_bot.py
+└── src
+    ├── app.py # Main application module
+    ├── docker-compose.yml
+    ├── Dockerfile
+    ├── frontend # Frontend files
+    │   ├── display_image.html
+    │   ├── error.html
+    │   ├── home.html
+    │   ├── register_and_login.html
+    │   └── static # Folder for static files
+    │       ├── logo.png
+    │       ├── script.js
+    │       └── style.css
+    ├── home.py # Module for handling homepage
+    ├── index.py # For indexing
+    ├── login.py # Module for handling user login
+    ├── logout.py # Module for handling user logout
+    ├── model.onnx # Model responsible for cartoonifying the image
+    ├── models.py # Module for handling user models
+    ├── register.py # Module for handling user registration
+    ├── requirements.txt # Requirements file
+    ├── static # Folder for storing uploaded user images
+    │   └── placeholder
+    └── utils.py # Utility functions for cartoonifying images
 
 ```
 
