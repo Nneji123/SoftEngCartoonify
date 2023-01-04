@@ -33,6 +33,11 @@
   - [Tools Used :wrench:](#tools-used-wrench)
   - [Repository File Structure :file\_folder:](#repository-file-structure-file_folder)
   - [Flowchart :chart:](#flowchart-chart)
+  - [Use Case Diagram :chart\_with\_upwards\_trend:](#use-case-diagram-chart_with_upwards_trend)
+    - [Module Relationship](#module-relationship)
+    - [Model Schema](#model-schema)
+  - [Application Demo :film\_strip:](#application-demo-film_strip)
+  - [How to run the Application :question:](#how-to-run-the-application-question)
   - [Tests :keyboard:](#tests-keyboard)
   - [Deployment :computer:](#deployment-computer)
 - [Todo :bookmark\_tabs:](#todo-bookmark_tabs)
@@ -98,26 +103,7 @@
 
 
 ## Flowchart :chart:
-<!-- ```mermaid
-  graph TD
-  A[Start] --> B[Register User]
-  B --> C[Login]
-  C --> D{Successful Login?}
-  D -- Yes --> E[Check User Details]
-  E --> F{Valid Details?}
-  F -- Yes --> G[Home]
-  F -- No --> C
-  G --> H[Create User Folder]
-  H --> I[Upload Image]
-  I --> J[Cartoonify Image]
-  J --> K[Display Images]
-  G --> L[Logout]
-  L --> M[Delete User Folder]
-  M --> A
-  D -- No --> C
-``` -->
 
-### Diagram
 [![](https://mermaid.ink/img/pako:eNplkctuwjAQRX_F8hp-IItWEPMIhS5KqVTZLEbxECwcO7KdBYr49zoDfUjdee6Zx53xwGuvkRe8CdCd2btQbib3CUI6sun0ic3lGzYmJgzsEDEclZuTXsqtb4zLcUmxGPZ9XWOMp94yQs835URm7BMjpSxkecb6Qn2YwATGxly_ILgcPsAa_a2Pxcu_xSu59i0eH-qrv5tQbkWPtSwDQsJ776W3mqyuCVby0FkPmlUtNGOLiuSNLPOW3jtzuv6gDaEXKUzsLDz00eV9znbc2vcpC1sSdlKgxX-DdwRnjwP8uuUT3mJoweh88UE5xhRPZ2xR8SI_NYSL4srdch70ye-vruZFCj1OeN_pvKAwkD-q5cUJbMTbF6wujiM?type=png)](https://mermaid.live/edit#pako:eNplkctuwjAQRX_F8hp-IItWEPMIhS5KqVTZLEbxECwcO7KdBYr49zoDfUjdee6Zx53xwGuvkRe8CdCd2btQbib3CUI6sun0ic3lGzYmJgzsEDEclZuTXsqtb4zLcUmxGPZ9XWOMp94yQs835URm7BMjpSxkecb6Qn2YwATGxly_ILgcPsAa_a2Pxcu_xSu59i0eH-qrv5tQbkWPtSwDQsJ776W3mqyuCVby0FkPmlUtNGOLiuSNLPOW3jtzuv6gDaEXKUzsLDz00eV9znbc2vcpC1sSdlKgxX-DdwRnjwP8uuUT3mJoweh88UE5xhRPZ2xR8SI_NYSL4srdch70ye-vruZFCj1OeN_pvKAwkD-q5cUJbMTbF6wujiM)
 
 
