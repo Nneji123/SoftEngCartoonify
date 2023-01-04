@@ -33,6 +33,7 @@
   - [Tools Used :wrench:](#tools-used-wrench)
   - [Repository File Structure :file\_folder:](#repository-file-structure-file_folder)
   - [Flowchart :chart:](#flowchart-chart)
+  - [Use Case Diagram :chart\_with\_upwards\_trend:](#use-case-diagram-chart_with_upwards_trend)
   - [Application Demo :film\_strip:](#application-demo-film_strip)
   - [How to run the Application :question:](#how-to-run-the-application-question)
   - [Tests :keyboard:](#tests-keyboard)
@@ -138,6 +139,8 @@ Explanation:
   - If the user chooses to upload an image, the "Create User Folder" operation (H) is performed, followed by the "Upload Image" operation (I). The "Cartoonify Image" operation (J) is then performed, followed by the "Display Images" operation (K) to show the uploaded and cartoonified images to the user.
   - If the user chooses to log out, the "Logout" operation (L) is performed and the "Delete User Folder" operation (M) is performed. The flowchart then goes back to the "Start" node (A).
 
+
+## Use Case Diagram :chart_with_upwards_trend:
 
  
 ## Application Demo :film_strip:
