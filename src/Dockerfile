@@ -16,4 +16,6 @@ RUN pip install -r requirements.txt
 
 ADD . . 
 
+RUN python init_db.py
+
 CMD python app.py
