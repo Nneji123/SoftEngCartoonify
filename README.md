@@ -34,8 +34,7 @@
   - [Repository File Structure :file\_folder:](#repository-file-structure-file_folder)
   - [Flowchart :chart:](#flowchart-chart)
   - [Use Case Diagram :chart\_with\_upwards\_trend:](#use-case-diagram-chart_with_upwards_trend)
-    - [Module Relationship](#module-relationship)
-    - [Model Schema](#model-schema)
+  - [Database Schema](#database-schema)
   - [Application Demo :film\_strip:](#application-demo-film_strip)
   - [How to run the Application :question:](#how-to-run-the-application-question)
   - [Tests :keyboard:](#tests-keyboard)
@@ -124,17 +123,24 @@ Explanation:
 
 
 ## Use Case Diagram :chart_with_upwards_trend:
-### Module Relationship
+<details><summary><b>Packages and Model Schema</b></summary>
+
+
 ![packages](https://user-images.githubusercontent.com/101701760/210594020-037a160c-8666-43f2-87fd-66e41ce36984.png)
 
 
-### Model Schema
+
 ![classes](https://user-images.githubusercontent.com/101701760/210594036-d97167d5-b894-42b7-86a9-735a238f4de4.png)
 
+</details>
+
 ## Database Schema
+<details>
+<summary><b>Database Example Image</b></summary>
+
 ![Screenshot (293)](https://user-images.githubusercontent.com/101701760/210609974-0a843780-55b8-47c6-a992-77a798c46ab2.png)
 
-
+</details>
 
  
 ## Application Demo :film_strip:
