@@ -29,7 +29,7 @@
   * [About :speech_balloon:](#about--speech-balloon-)
   * [Contents :page_with_curl:](#contents--page-with-curl-)
   * [Features :star2:](#features--star2-)
-  * [Tools Used :tool:](#tools-used--tool-)
+  * [Tools Used :wrench:](#tools-used--tool-)
   * [Flowchart :chart:](#flowchart--chart-)
   * [Repository File Structure :file_folder:](#repository-file-structure--file-folder-)
   * [Application Demo :film_strip:](#application-demo--film-strip-)
@@ -53,7 +53,7 @@ Here are the features of the web application described in the flowchart:
 - Creation of a user folder for storing uploaded images
 - Deletion of the user folder upon logout to free up space
 
-## Tools Used :tool:
+## Tools Used :wrench:
 - Python
 - Flask
 - SQLAlchemy
