@@ -1,39 +1,19 @@
 # Cartoonify Web Application 
-A simple web application that generates cartoon images from an input image. Built with Python.
-
-Creating the database:
-```
-pip3 install -r requirements.txt
-cd backend
-python3
-from app import db
-db.create_all()
-```
-
-Todo:
-Update Documentation
-Write Report
-Deploy Application using Railway
-Write functionality and load tests using pytest as locust.
-
-
 [![Language](https://img.shields.io/badge/Python-darkblue.svg?style=flat&logo=python&logoColor=white)](https://www.python.org)
-[![Framework](https://img.shields.io/badge/Flask-darkgreen.svg?style=flat&logo=flask&logoColor=white)](https://github.com/Nneji123/Raplyricsbot)
+[![Framework](https://img.shields.io/badge/Flask-darkgreen.svg?style=flat&logo=flask&logoColor=white)](https://github.com/Nneji123/SoftEngCartoonify)
 ![hosted](https://img.shields.io/badge/Railway-430098?style=flat&logo=railway&logoColor=white)
-![hosted](https://img.shields.io/badge/Heroku-430098?style=flat&logo=heroku&logoColor=white)
-[![Twitter](https://img.shields.io/badge/Twitter-blue.svg?style=flat&logo=twitter&logoColor=white)](https://twitter.com/__RapLyricsBot)
 ![Docker](https://img.shields.io/badge/Docker-blue?style=flat&logo=docker&logoColor=white)
-[![Gitpod](https://img.shields.io/badge/Gitpod-orange?style=flat&logo=gitpod&logoColor=white)](https://gitpod.io/#https://github.com/Nneji123/RapLyricsBot)
-![reposize](https://img.shields.io/github/repo-size/Nneji123/RapLyricsBot)
-[![tests](https://github.com/Nneji123/RapLyricsBot/actions/workflows/test.yml/badge.svg)](https://github.com/Nneji123/RapLyricsBot/actions/workflows/test.yml)
-[![CodeQL](https://github.com/Nneji123/RapLyricsBot/actions/workflows/codeql.yml/badge.svg)](https://github.com/Nneji123/RapLyricsBot/actions/workflows/codeql.yml)
+[![Gitpod](https://img.shields.io/badge/Gitpod-orange?style=flat&logo=gitpod&logoColor=white)](https://gitpod.io/#https://github.com/Nneji123/SoftEngCartoonify)
+![reposize](https://img.shields.io/github/repo-size/Nneji123/SoftEngCartoonify)
+[![tests](https://github.com/Nneji123/SoftEngCartoonify/actions/workflows/test.yml/badge.svg)](https://github.com/Nneji123/SoftEngCartoonify/actions/workflows/test.yml)
+[![CodeQL](https://github.com/Nneji123/SoftEngCartoonify/actions/workflows/codeql.yml/badge.svg)](https://github.com/Nneji123/SoftEngCartoonify/actions/workflows/codeql.yml)
 
 
 
 ## About :speech_balloon:
->A Twitter Bot that tweets Rap lyrics made with Python, Tweepy and Flask and deployed with RailWay.
+>A Web application deployed using `Railway` that uses Python, Flask, SQLAlchemy, SQLite or Postgres Database to handle user authentication and manage a database of uploaded images. The application features a login and registration page, and allows users to upload and cartoonify images. The use of Python and relevant libraries enables efficient and secure handling of user authentication and image management.
 
-Twitter: https://twitter.com/__RapLyrics
+Link: https://softengcartoonify-production.up.railway.app/login
 
 
 
@@ -56,7 +36,68 @@ Twitter: https://twitter.com/__RapLyrics
 
 
 ## Features :star2:
-The bot works by reading and parsing a text file containing the lyrics. The text file can be found [here.](https://github.com/Nneji123/Raplyricsbot/data/Rap_lyrics.txt) The code can be found in the [src](https://github.com/Nneji123/Raplyricsbot/src) folder.
+Here are the features of the web application described in the flowchart:
+- Registration of users to a database (either SQLite or PostgreSQL)
+- Login for authenticated users
+- Validation of user details
+- Image upload for logged-in users
+- Cartoonify process of uploaded image
+- Display uploaded image and cartoonified image to logged in user
+- Creation of a user folder for storing uploaded images
+- Deletion of the user folder upon logout to free up space
+
+## Tools Used :tool:
+- Python
+- Flask
+- SQLAlchemy
+- HTML
+- CSS
+- Javascript
+- Postgres
+- SQLite
+- Docker
+
+
+
+## Flowchart :chart:
+```mermaid
+graph TD
+A[Start] --> B[Register User]
+B --> C[Login]
+C --> D{Successful Login?}
+D -- Yes --> E[Check User Details]
+E --> F{Valid Details?}
+F -- Yes --> G[Home]
+F -- No --> C
+G --> H[Create User Folder]
+H --> I[Upload Image]
+I --> J[Cartoonify Image]
+J --> K[Display Images]
+G --> L[Logout]
+L --> M[Delete User Folder]
+M --> A
+D -- No --> C
+```
+
+### Diagram
+[![](https://mermaid.ink/img/pako:eNplkctuwjAQRX_F8hp-IItWEPMIhS5KqVTZLEbxECwcO7KdBYr49zoDfUjdee6Zx53xwGuvkRe8CdCd2btQbib3CUI6sun0ic3lGzYmJgzsEDEclZuTXsqtb4zLcUmxGPZ9XWOMp94yQs835URm7BMjpSxkecb6Qn2YwATGxly_ILgcPsAa_a2Pxcu_xSu59i0eH-qrv5tQbkWPtSwDQsJ776W3mqyuCVby0FkPmlUtNGOLiuSNLPOW3jtzuv6gDaEXKUzsLDz00eV9znbc2vcpC1sSdlKgxX-DdwRnjwP8uuUT3mJoweh88UE5xhRPZ2xR8SI_NYSL4srdch70ye-vruZFCj1OeN_pvKAwkD-q5cUJbMTbF6wujiM?type=png)](https://mermaid.live/edit#pako:eNplkctuwjAQRX_F8hp-IItWEPMIhS5KqVTZLEbxECwcO7KdBYr49zoDfUjdee6Zx53xwGuvkRe8CdCd2btQbib3CUI6sun0ic3lGzYmJgzsEDEclZuTXsqtb4zLcUmxGPZ9XWOMp94yQs835URm7BMjpSxkecb6Qn2YwATGxly_ILgcPsAa_a2Pxcu_xSu59i0eH-qrv5tQbkWPtSwDQsJ776W3mqyuCVby0FkPmlUtNGOLiuSNLPOW3jtzuv6gDaEXKUzsLDz00eV9znbc2vcpC1sSdlKgxX-DdwRnjwP8uuUT3mJoweh88UE5xhRPZ2xR8SI_NYSL4srdch70ye-vruZFCj1OeN_pvKAwkD-q5cUJbMTbF6wujiM)
+
+
+
+Explanation:
+- The flowchart starts at the "Start" node (A).
+- The next node is the "Register User" operation (B).
+- After the user is registered, the "Login" operation (C) is performed.
+- A condition is checked to see if the login was successful (D).
+  - If the login was successful, the "Check User Details" operation (E) is performed.
+  - If the login was not successful, the flowchart goes back to the "Login" operation (C).
+- The user's details are checked to see if they are valid (F).
+  - If the details are valid, the flowchart goes to the "Home" end node (G).
+  - If the details are not valid, the flowchart goes back to the "Login" operation (C).
+- From the "Home" node (G), the user can either upload an image or log out of the application.
+  - If the user chooses to upload an image, the "Create User Folder" operation (H) is performed, followed by the "Upload Image" operation (I). The "Cartoonify Image" operation (J) is then performed, followed by the "Display Images" operation (K) to show the uploaded and cartoonified images to the user.
+  - If the user chooses to log out, the "Logout" operation (L) is performed and the "Delete User Folder" operation (M) is performed. The flowchart then goes back to the "Start" node (A).
+
 
 
 
@@ -83,14 +124,6 @@ The bot works by reading and parsing a text file containing the lyrics. The text
 
 ```
 
-## Pre-requisites :boom:
-
-To build and use the bot, you'll need to:
- 
- 1. Create a new Twitter account to act as the bot.
- 2. Register for a [twitter developer account.](https://developer.twitter.com/en)  
- 3. Create a [twitter app](https://developer.twitter.com/en/portal/projects-and-apps). Make sure to give it **Read and Write** permissions.
- 4. Set up a [Railway](https://railway.app/) or [Heroku Account.](https://heroku.com)
 
  
 ## Application Demo :film_strip:
@@ -105,22 +138,41 @@ https://user-images.githubusercontent.com/101701760/210450784-01c707cc-b5e5-4b12
     <summary><b>How to Run the application locally.<b></summary>
 
 
-To make your own bot follow these steps:
+To run the application locally do the following:
 
-1. Clone this repository on your local machine
-2. Create a virtual environment in your project's root directory: `python3 -m venv environment && source environment/bin/activate`
+1. Clone this repository to your local machine
+2. Make sure you have python installed. Visit this [link](https://www.python.org/downloads/) for more information on how to install python to your system.
 3. Install the required libraries using pip: `pip install -r requirements.txt`
-4. Create a file called `.env` in the root directory of your project. Put your twitter App keys there (and any other keys required for scraping data if needed). 
+4. Create a file called `.env` in the root directory of your project. Put the necessary environment variables in this file
     * THIS IS JUST FOR TESTING. Once everything is tested and ready to deploy, you'll move these to environment variables.
-    * ADD THIS FILE(`.env`) TO THE .gitignore so you're not putting your api keys publicly on github!
+    * ADD THIS FILE(`.env`) TO THE .gitignore so you're not putting your environment keys publicly on github!
+
+**The environment variables needed are listed below**
 ```
-ACCESS_TOKEN=<YOUR_ACCESS_TOKEN_HERE>
-ACCESS_TOKEN_SECRET=<YOUR_ACCESS_TOKEN_SECRET_HERE>
-CONSUMER_KEY=<YOUR_CONSUMER_KEY_HERE>
-CONSUMER_SECRET=<YOUR_CONSUMER_SECRET_HERE>
+POSTGRES=
+SQLITE="sqlite:///../database.db"
+SECRET_KEY
+DATABASE_MODE
 ```
-1. Make changes in the logic of the bot by modyifing `src/bot.py`
-2. Test your changes locally by running `python src/bot.py` from the root directory of your project
+
+`Note: If **DATABASE_MODE** is set to **postgres**, a postgres database will be used else an sqlite database will be used.`
+
+1. If you choose to use a local `sqlite` database make sure to initialize the database first by doing the following from your terminal
+- Change the directory
+```bash
+cd src
+```
+
+- Run python
+```bash
+python3
+from app import db
+db.create_all()
+```
+
+- A local sqlite database named database.db will be created.
+
+2. Test your changes locally by running `python app.pu` from the src folder of this project.
 
 </details>
 
@@ -132,22 +184,23 @@ CONSUMER_SECRET=<YOUR_CONSUMER_SECRET_HERE>
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/Nneji123/RapLyricsBot.git
+git clone https://github.com/Nneji123/SoftEngCartoonify.git
 ```
 
 2. Change the directory:
 ```
-cd RapLyricsBot
+cd SoftEngCartoonify
+cd src
 ```
 
-3. Edit the `.envexample` file and store your keys there.
+3. Edit and rename the `.envexample` file to `.env` and store your keys there.
 
 
 4. Run the docker compose command
 ```docker
 docker compose up -d --build 
 ```
-And then the lyrics should be tweeted.
+And then the application should be running on `127.0.0.1:5000`
 </details>
 
 
@@ -157,7 +210,7 @@ And then the lyrics should be tweeted.
 
 **Click the button below to start a new development environment:**
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/Nneji123/RapLyricsBot)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/Nneji123/SoftEngCartoonify)
 </details>
 
 ## Tests :keyboard:
@@ -167,11 +220,12 @@ And then the lyrics should be tweeted.
 To test the API functions do the following:
 1. Clone the repository:
 ```
-git clone https://github.com/Nneji123/RapLyricsBot.git
+git clone https://github.com/Nneji123/SoftEngCartoonify.git
 ```
 2. Change the working directory and install the requirements and pytest:
 ```
-cd Raplyricsbot
+cd SoftEngCartoonify
+cd src
 pip install -r requirements.txt
 ```
 3. Move to the tests folder and run the tests
@@ -183,17 +237,6 @@ pytest tests
 
 ## Deployment :computer:
 
-<details> 
-  <summary><b>Deploying the Bot to Heroku</b></summary>
-
-Click the button below to deploy the application.
-
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
-
-
-</details>
-
 <details>
     <summary><b>Deploy the Bot to Railway<b></summary>
 Click the button below to deploy the bot to railway
@@ -204,12 +247,13 @@ Click the button below to deploy the bot to railway
 
 
 # Todo :bookmark_tabs:
-- [x] Add more lyrics
-- [x] Change this from a Rap lyrics bot to a general rap bot
-- [x] Get more lyrics using this library https://github.com/johnwmillr/LyricsGenius
+- [x] Handle Error Popups
+- [x] Update Documentation
+- [x] Add support with Docker
 - [x] Update Readme.
-- [x] Update tests
+- [x] Update tests.
+- [x] Deploy application to the web.
 
 
 # License :page_with_curl:
-[MIT](https://github.com/Nneji123/RapLyricsBot/LICENSE.md)
+[MIT](https://github.com/Nneji123/SoftEngCartoonify/LICENSE)
