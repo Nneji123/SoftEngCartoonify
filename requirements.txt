@@ -9,3 +9,5 @@ SQLAlchemy==1.4.45
 Werkzeug==2.2.2
 psycopg2==2.9.5
 python-dotenv==0.21.0
+pytest
+pytest-flask
