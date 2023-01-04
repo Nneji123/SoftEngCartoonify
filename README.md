@@ -170,6 +170,7 @@ POSTGRES=
 SQLITE="sqlite:///../database.db"
 SECRET_KEY
 DATABASE_MODE
+PORT
 ```
 
 `Note: If **DATABASE_MODE** is set to **postgres**, a postgres database will be used else an sqlite database will be used.`
@@ -308,7 +309,7 @@ pip install locust
 
 Click the button below to deploy the application to railway
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/k_WXDI?referralCode=ZYOf2M)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/Fr7c3B?referralCode=ZYOf2M)
 
 </details>
 
