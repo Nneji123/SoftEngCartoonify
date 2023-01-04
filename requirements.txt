@@ -11,3 +11,4 @@ psycopg2==2.9.5
 python-dotenv==0.21.0
 pytest
 pytest-flask
+locust==2.14.2

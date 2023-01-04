@@ -268,6 +268,21 @@ pytest tests
 <details> 
   <summary><b>Performing Load Tests with Locust</b></summary>
 
+1. Make sure the application is running already from the above steps.
+2. Install locust:
+
+```bash
+pip install locust
+```
+
+3. Run locust tests
+
+```bash
+  cd tests
+  locust -f load_test.py
+```
+
+4. Set the number of IP's and address and then run the load tests
 
  </details> 
 
