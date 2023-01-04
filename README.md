@@ -25,19 +25,20 @@
 
 
 ## Contents :page_with_curl:
-- [Cartoonify Web Application](#cartoonify-web-application)
-  - [About :speech\_balloon:](#about-speech_balloon)
-  - [Contents :page\_with\_curl:](#contents-page_with_curl)
-  - [Features :star2:](#features-star2)
-  - [Repository File Structure :file\_folder:](#repository-file-structure-file_folder)
-  - [Pre-requisites :boom:](#pre-requisites-boom)
-  - [How to run the Application :question:](#how-to-run-the-application-question)
-  - [Tests :keyboard:](#tests-keyboard)
-  - [Deployment :computer:](#deployment-computer)
-- [Todo :bookmark\_tabs:](#todo-bookmark_tabs)
-- [License :page\_with\_curl:](#license-page_with_curl)
+- [Cartoonify](#cartoonify)
+  * [About :speech_balloon:](#about--speech-balloon-)
+  * [Contents :page_with_curl:](#contents--page-with-curl-)
+  * [Features :star2:](#features--star2-)
+  * [Tools Used :tool:](#tools-used--tool-)
+  * [Flowchart :chart:](#flowchart--chart-)
+  * [Repository File Structure :file_folder:](#repository-file-structure--file-folder-)
+  * [Application Demo :film_strip:](#application-demo--film-strip-)
+  * [How to run the Application :question:](#how-to-run-the-application--question-)
+  * [Tests :keyboard:](#tests--keyboard-)
+  * [Deployment :computer:](#deployment--computer-)
 - [Todo :bookmark_tabs:](#todo--bookmark-tabs-)
 - [License :page_with_curl:](#license--page-with-curl-)
+
 
 
 
@@ -85,9 +86,9 @@ M --> A
 D -- No --> C
 ```
 
-### Diagram
+<!-- ### Diagram
 [![](https://mermaid.ink/img/pako:eNplkctuwjAQRX_F8hp-IItWEPMIhS5KqVTZLEbxECwcO7KdBYr49zoDfUjdee6Zx53xwGuvkRe8CdCd2btQbib3CUI6sun0ic3lGzYmJgzsEDEclZuTXsqtb4zLcUmxGPZ9XWOMp94yQs835URm7BMjpSxkecb6Qn2YwATGxly_ILgcPsAa_a2Pxcu_xSu59i0eH-qrv5tQbkWPtSwDQsJ776W3mqyuCVby0FkPmlUtNGOLiuSNLPOW3jtzuv6gDaEXKUzsLDz00eV9znbc2vcpC1sSdlKgxX-DdwRnjwP8uuUT3mJoweh88UE5xhRPZ2xR8SI_NYSL4srdch70ye-vruZFCj1OeN_pvKAwkD-q5cUJbMTbF6wujiM?type=png)](https://mermaid.live/edit#pako:eNplkctuwjAQRX_F8hp-IItWEPMIhS5KqVTZLEbxECwcO7KdBYr49zoDfUjdee6Zx53xwGuvkRe8CdCd2btQbib3CUI6sun0ic3lGzYmJgzsEDEclZuTXsqtb4zLcUmxGPZ9XWOMp94yQs835URm7BMjpSxkecb6Qn2YwATGxly_ILgcPsAa_a2Pxcu_xSu59i0eH-qrv5tQbkWPtSwDQsJ776W3mqyuCVby0FkPmlUtNGOLiuSNLPOW3jtzuv6gDaEXKUzsLDz00eV9znbc2vcpC1sSdlKgxX-DdwRnjwP8uuUT3mJoweh88UE5xhRPZ2xR8SI_NYSL4srdch70ye-vruZFCj1OeN_pvKAwkD-q5cUJbMTbF6wujiM)
-
+ -->
 
 
 Explanation:
