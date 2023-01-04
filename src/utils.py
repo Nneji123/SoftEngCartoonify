@@ -40,3 +40,11 @@ def inference(image: np.ndarray) -> Image:
     cv2.imwrite("./static/" + f"{str(current_user.id)}/" + filename, output)
     # os.remove("instance/image.jpg")
     return "Output Saved!"
+
+def inference_test(image: Image) -> Image:
+    image = preprocess_image(image)
+    results = MODEL_SESS.run(None, {"input_photo:0": image})
+    output = (np.squeeze(results[0]) + 1.0) * 127.5
+    output = np.clip(output, 0, 255).astype(np.uint8)
+    cv2.imwrite("output.jpg", output)
+    return "Output Saved!"

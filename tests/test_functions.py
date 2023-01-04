@@ -1,8 +1,8 @@
-from utils import preprocess_image, inference_test
+from ..src.utils import preprocess_image, inference_test
 from PIL import Image
 import os
 import numpy as np
-from models import Users
+from ..src.models import Users
 
 def test_inference():
     image = Image.open("test.jpg")
@@ -28,3 +28,17 @@ def test_users():
     assert user.username == "test_user"
     assert user.email == "test@example.com"
     assert user.password == "test_password"
+
+
+# def test_home_page():
+#     """
+#     GIVEN a Flask application configured for testing
+#     WHEN the '/' page is requested (GET)
+#     THEN check that the response is valid
+#     """
+#     flask_app = create_app('flask_test.cfg')
+
+#     # Create a test client using the Flask application configured for testing
+#     with flask_app.test_client() as test_client:
+#         response = test_client.get('/')
+#         assert response.status_code == 200
