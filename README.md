@@ -131,6 +131,10 @@ Explanation:
 ### Model Schema
 ![classes](https://user-images.githubusercontent.com/101701760/210594036-d97167d5-b894-42b7-86a9-735a238f4de4.png)
 
+## Database Schema
+![Screenshot (293)](https://user-images.githubusercontent.com/101701760/210609974-0a843780-55b8-47c6-a992-77a798c46ab2.png)
+
+
 
  
 ## Application Demo :film_strip:
