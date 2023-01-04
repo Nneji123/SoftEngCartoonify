@@ -43,15 +43,16 @@
 
 
 ## Features :star2:
-Here are the features of the web application described in the flowchart:
-- Registration of users to a database (either SQLite or PostgreSQL)
-- Login for authenticated users
-- Validation of user details
-- Image upload for logged-in users
-- Cartoonify process of uploaded image
-- Display uploaded image and cartoonified image to logged in user
-- Creation of a user folder for storing uploaded images
-- Deletion of the user folder upon logout to free up space
+- Frontend UI with HTML, CSS and Javascript
+- Backend with Python and Flask
+- Registration of users to a database (either SQLite or PostgreSQL).
+- Login for authenticated users.
+- Validation of user details.
+- Image upload for logged-in users.
+- Cartoonify process of uploaded image.
+- Display uploaded image and cartoonified image to logged in user.
+- Creation of a user folder for storing uploaded images.
+- Deletion of the user folder upon logout to free up space.
 
 ## Tools Used :wrench:
 - Python
