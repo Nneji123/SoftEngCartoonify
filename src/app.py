@@ -24,7 +24,7 @@ DATABASE_MODE = os.getenv("DATABASE_MODE")
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 
-app.config["SECRET_KEY"] =SECRET_KEY
+app.config["SECRET_KEY"] = SECRET_KEY
 
 if DATABASE_MODE == "postgres":
     app.config["SQLALCHEMY_DATABASE_URI"] = POSTGRES
@@ -45,12 +45,21 @@ app.register_blueprint(home)
 
 @login_manager.user_loader
 def load_user(user_id):
+    """
+    The load_user function is used to load a user from the database.
+    It takes in an id as an argument and queries the database for that user.
+    If it finds one, it returns that user object, otherwise it returns None.
+
+    Args:
+        user_id: Find the user in the database
+
+    Returns:
+        The user object of the user with the given id
+    """
     try:
         return Users.query.get(int(user_id))
     except (sqlalchemy.exc.OperationalError) as e:
         return render_template("error.html", e="Database not found")
-
-
 
 
 if __name__ == "__main__":

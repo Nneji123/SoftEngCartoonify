@@ -1,8 +1,9 @@
+import sqlalchemy
 from flask import Blueprint, redirect, render_template, request, url_for
 from flask_login import LoginManager
-from models import Users, db
 from werkzeug.security import generate_password_hash
-import sqlalchemy
+
+from models import Users, db
 
 register = Blueprint("register", __name__, template_folder="./frontend")
 login_manager = LoginManager()
@@ -11,6 +12,15 @@ login_manager.init_app(register)
 
 @register.route("/register", methods=["GET", "POST"])
 def show():
+    """
+    The show function renders the register_and_login.html template, which contains a form for registering or logging in.
+    If the user is already logged in, they are redirected to their profile page.
+
+    Args:
+
+    Returns:
+        The register_and_login.html template
+    """
     if request.method == "POST":
         username = request.form["username"]
         email = request.form["email"]
