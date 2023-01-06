@@ -19,10 +19,11 @@
             <h1 class="center">Cartoonify!</h1>
             <h2>Welcome {{ current_user.username }}!</h2> 
             <input type="file" name="image">
-            <button type="submit" value="Upload">Upload Image</button>
-        <br>
-        <button><a href="/logout">Logout</a></button>
-        </br>
+            <!-- <button type="submit" value="Upload">Upload Image</button> -->
+            <div class="button-container">
+              <button type="submit" value="Upload">Upload Image</button>
+              <button><a href="/logout">Logout</a></button>
+            </div>
         </form>
 <footer>
 	<p>
