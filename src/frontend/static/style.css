@@ -252,6 +252,15 @@ input {
 	width: 40px;
 }
 
+.button-container {
+	display: flex;
+	justify-content: center;
+	}
+	
+button {
+	margin: 0 10px;
+}
+
 footer {
     background-color: #222;
     color: #fff;

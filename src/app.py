@@ -4,9 +4,6 @@ import sqlalchemy
 from dotenv import load_dotenv
 from flask import Flask, redirect, render_template, request, url_for
 from flask_login import LoginManager
-import sys
-
-# sys.path.append(os.path.abspath(os.path.join("..", "config")))
 
 from home import home
 from index import index
@@ -34,7 +31,6 @@ if DATABASE_MODE == "postgres":
 else:
     app.config["SQLALCHEMY_DATABASE_URI"] = SQLITE
 
-# app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:DfAMdWviDBdxdmCvsADo@containers-us-west-37.railway.app:7088/railway"
 login_manager = LoginManager()
 login_manager.init_app(app)
 db.init_app(app)
