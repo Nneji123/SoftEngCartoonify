@@ -67,26 +67,7 @@ def load_user_user(user_id):
             return googleuser
     except (sqlalchemy.exc.OperationalError) as e:
         return render_template("error.html", e="Database not found")
-    
-
-
-# @login_manager.user_loader
-# def load_user_google(user_id):
-#     """
-#     The load_user function is used to load a user from the database.
-#     It takes in an id as an argument and queries the database for that user.
-#     If it finds one, it returns that user object, otherwise it returns None.
-
-#     Args:
-#         user_id: Find the user in the database
-
-#     Returns:
-#         The user object of the user with the given id
-#     """
-#     try:
-#         return GooogleUsers.query.get(user_id)
-#     except (sqlalchemy.exc.OperationalError) as e:
-#         return render_template("error.html", e="Database not found")
+ 
 
 if __name__ == "__main__":
-    app.run(port=os.getenv("PORT", default=5000), ssl_context=('cert.pem', 'key.pem'),  debug=os.getenv("DEBUG", default=True))
+    app.run(port=os.getenv("PORT", default=5000),  debug=os.getenv("DEBUG", default=True))#  ssl_context='adhoc', 
