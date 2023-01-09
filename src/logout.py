@@ -1,7 +1,7 @@
 import os
 import shutil
 
-from flask import Blueprint, redirect, url_for
+from flask import Blueprint, redirect, url_for, flash
 from flask_login import LoginManager, current_user, login_required, logout_user
 
 logout = Blueprint("logout", __name__, template_folder="./frontend")
@@ -26,4 +26,5 @@ def show():
     else:
         pass
     logout_user()
+    flash("You have successfully logged out!", "success")
     return redirect(url_for("login.show") + "?success=logged-out")
