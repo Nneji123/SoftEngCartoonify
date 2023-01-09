@@ -95,8 +95,10 @@ def callback():
             db.session.add(new_user)
             db.session.commit()
         except sqlalchemy.exc.IntegrityError:
+            db.session.rollback()
             return redirect(url_for("register.show") + "?error=user-or-email-exists")
-
+        finally:
+            db.session.close()
     # Send user back to homepage
     return redirect(url_for("login.show") + "?success=account-created")
 
