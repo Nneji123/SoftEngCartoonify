@@ -1,7 +1,7 @@
 import os
 
 import sqlalchemy
-from flask import Blueprint, redirect, render_template, request, url_for
+from flask import Blueprint, redirect, render_template, request, url_for, flash
 from flask_login import LoginManager
 from werkzeug.security import generate_password_hash
 from oauthlib.oauth2 import WebApplicationClient
@@ -89,18 +89,29 @@ def callback():
     # user = GooogleUsers(username=users_name, email=users_email)
 
     # Doesn't exist? Add to database
-    if not Users.query.get(users_email) and not GooogleUsers.query.get(users_email):
+    user = bool(Users.query.filter_by(email=users_email).first())
+    print(user)
+    google_user = bool(GooogleUsers.query.filter_by(email=users_email).first())
+    print(google_user)
+    if user == False and google_user == False:
         try:
             new_user = GooogleUsers(id=unique_id, username=users_name, email=users_email, profile_pic=picture)
             db.session.add(new_user)
             db.session.commit()
+            flash("You have successfully registered!", "success")
+            return redirect(url_for("login.show") + "?success=account-created")
         except sqlalchemy.exc.IntegrityError:
             db.session.rollback()
+            flash("User already exists!", "failure")
             return redirect(url_for("register.show") + "?error=user-or-email-exists")
         finally:
             db.session.close()
+    elif user == True or google_user == True:
+        flash("User already exists!", "failure")
+        return redirect(url_for("register.show") + "?error=user-or-email-exists")
+        
     # Send user back to homepage
-    return redirect(url_for("login.show") + "?success=account-created")
+
 
 
 
@@ -124,7 +135,11 @@ def show():
         if username and email and password and confirm_password:
             if password == confirm_password:
                 hashed_password = generate_password_hash(password, method="sha256")
-                if not Users.query.get(email) or not GooogleUsers.query.get(email):
+                user = bool(Users.query.filter_by(email=email).first())
+                print(user)
+                google_user = bool(GooogleUsers.query.filter_by(email=email).first())
+                print(google_user)
+                if user == False and google_user == False:
                     try:
                         new_user = Users(
                             username=username,
@@ -134,17 +149,21 @@ def show():
 
                         db.session.add(new_user)
                         db.session.commit()
+                        flash("You have successfully registered!", "success")
+                        return redirect(url_for("login.show") + "?success=account-created")
                     except sqlalchemy.exc.IntegrityError:
                         db.session.rollback()
+                        flash("User already exists!", "failure")
                         return redirect(
                             url_for("register.show") + "?error=user-or-email-exists"
                         )
                     finally:
                         db.session.close()
-                elif Users.query.get(email) or GooogleUsers.query.get(email):
+                elif user or google_user:
+                    flash("User already exists!", "failure")
                     return redirect(url_for("register.show") + "?error=user-or-email-exists")
-                return redirect(url_for("login.show") + "?success=account-created")
         else:
+            flash("Please fill in all fields!", "failure")
             return redirect(url_for("register.show") + "?error=missing-fields")
     else:
         return render_template("register_and_login.html")

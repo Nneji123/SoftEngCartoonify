@@ -1,6 +1,6 @@
 import os
 
-from flask import Blueprint, redirect, render_template, request, url_for
+from flask import Blueprint, redirect, render_template, request, url_for, flash
 from flask_login import LoginManager, login_user
 from werkzeug.security import check_password_hash
 from oauthlib.oauth2 import WebApplicationClient
@@ -83,6 +83,7 @@ def callback():
         login_user(user)
         return redirect(url_for("home.show") + "?success=login-successful")
     else:
+        flash("You are not registered with us. Please register first.")
         return redirect(url_for("register.show") + "?error=user-not-found")
 
 
@@ -111,6 +112,7 @@ def show():
             else:
                 return redirect(url_for("login.show") + "?error=incorrect-password")
         else:
+            flash*("You are not registered with us. Please register first.")
             return redirect(url_for("login.show") + "?error=user-not-found")
     else:
         return render_template("register_and_login.html")
