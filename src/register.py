@@ -135,9 +135,12 @@ def show():
                         db.session.add(new_user)
                         db.session.commit()
                     except sqlalchemy.exc.IntegrityError:
+                        db.session.rollback()
                         return redirect(
                             url_for("register.show") + "?error=user-or-email-exists"
                         )
+                    finally:
+                        db.session.close()
                 elif Users.query.get(email) or GooogleUsers.query.get(email):
                     return redirect(url_for("register.show") + "?error=user-or-email-exists")
                 return redirect(url_for("login.show") + "?success=account-created")
