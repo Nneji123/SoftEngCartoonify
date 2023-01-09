@@ -21,6 +21,10 @@ ENV SQLITE sqlite:///../database.db
 ENV SECRET_KEY secret_key 
 ENV DATABASE_MODE sqlite
 ENV PORT 5000
+ENV GOOGLE_CLIENT_ID value
+ENV GOOGLE_CLIENT_SECRET value
+ENV GOOGLE_DISCOVERY_URL value
+ENV DEBUG value
 
 RUN python init_db.py
 

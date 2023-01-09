@@ -2,14 +2,14 @@ import os
 
 import sqlalchemy
 from dotenv import load_dotenv
-from flask import Flask, redirect, render_template, request, url_for
+from flask import Flask, render_template
 from flask_login import LoginManager
 
 from home import home
 from index import index
 from login import login
 from logout import logout
-from models import Users, db
+from models import Users, db, GooogleUsers
 from register import register
 
 load_dotenv()
@@ -33,6 +33,7 @@ else:
 
 login_manager = LoginManager()
 login_manager.init_app(app)
+# login_manager.login_view = "home.show"
 db.init_app(app)
 app.app_context().push()
 
@@ -42,25 +43,50 @@ app.register_blueprint(logout)
 app.register_blueprint(register)
 app.register_blueprint(home)
 
+# login_manager.login_view = 'login'
+
 
 @login_manager.user_loader
-def load_user(user_id):
+def load_user_user(user_id):
     """
-    The load_user function is used to load a user from the database.
-    It takes in an id as an argument and queries the database for that user.
-    If it finds one, it returns that user object, otherwise it returns None.
-
+    The load_user_user function is used to load a user from the database. It takes in a user_id and returns either a 
+    Users object or GooogleUsers object depending on which one exists in the database. If neither exist, it returns None.
+    
     Args:
-        user_id: Find the user in the database
-
+        user_id: Get the user object from the database
+    
     Returns:
-        The user object of the user with the given id
+        A user object
     """
+    myuser = Users.query.get(user_id)
+    googleuser = GooogleUsers.query.get(user_id)
     try:
-        return Users.query.get(int(user_id))
+        if myuser:
+            return myuser
+        if googleuser:
+            return googleuser
     except (sqlalchemy.exc.OperationalError) as e:
         return render_template("error.html", e="Database not found")
+    
 
+
+# @login_manager.user_loader
+# def load_user_google(user_id):
+#     """
+#     The load_user function is used to load a user from the database.
+#     It takes in an id as an argument and queries the database for that user.
+#     If it finds one, it returns that user object, otherwise it returns None.
+
+#     Args:
+#         user_id: Find the user in the database
+
+#     Returns:
+#         The user object of the user with the given id
+#     """
+#     try:
+#         return GooogleUsers.query.get(user_id)
+#     except (sqlalchemy.exc.OperationalError) as e:
+#         return render_template("error.html", e="Database not found")
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=os.getenv("PORT", default=5000), debug=True)
+    app.run(port=os.getenv("PORT", default=5000), ssl_context=('cert.pem', 'key.pem'),  debug=os.getenv("DEBUG", default=True))

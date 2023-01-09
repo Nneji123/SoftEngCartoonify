@@ -274,6 +274,11 @@ footer {
     z-index: 999;
 }
 
+.profile-pic-container {
+	float: left;
+	margin-right: 10px;
+  }
+
 footer p {
     margin: 10px 0;
 }

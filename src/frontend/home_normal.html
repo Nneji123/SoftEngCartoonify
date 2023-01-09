@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome to Cartoonify {{current_user.username.title()}}</title>
+  <meta name="description" content="Create cartoon versions of your images with our user-friendly Cartoonify application. Simply upload an image and let our technology do the rest. Sign up now to get started.">
+  <link rel="icon" type="image/png" href="{{ url_for('static',filename='logo.png') }}">
+  <link rel="canonical" href="https://www.cartoonify.com/">
+
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+  <link rel="stylesheet" href="https://unpkg.com/blocks.css/dist/blocks.min.css" />
+  <script src="https://kit.fontawesome.com/5285e374b0.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <h1 class="center">Cartoonify!</h1>
+            <div class="profile-pic-container">
+              <img src="{{ current_user.profile_pic }}" alt="{{ current_user.username }}'s profile picture">
+            </div>
+            <h2>Welcome {{ current_user.username.title() }}!</h2> 
+            <input type="file" name="image">
+            <!-- <button type="submit" value="Upload">Upload Image</button> -->
+            <div class="button-container">
+              <button type="submit" value="Upload">Upload Image</button>
+              <button><a href="/logout">Logout</a></button>
+            </div>
+        </form>
+<footer>
+	<p>
+		Created with <i class="fa fa-heart"></i> by
+		<a target="_blank" href="https://github.com/Nneji123">Group C 500L Computer Engineering.</a>
+		You can find the project files and documentation
+		<a target="_blank" href="https://github.com/Nneji123/SoftEngCartoonify">here</a>.
+	</p>
+</footer>
+
+
+</html>

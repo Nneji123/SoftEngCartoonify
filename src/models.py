@@ -9,3 +9,11 @@ class Users(UserMixin, db.Model):
     username = db.Column(db.String(15), unique=True)
     email = db.Column(db.String(50), unique=True)
     password = db.Column(db.String)
+    
+    
+class GooogleUsers(UserMixin, db.Model):
+    id = db.Column(db.String, primary_key=True)
+    username = db.Column(db.String(15), unique=True)
+    email = db.Column(db.String(50), unique=True)
+    profile_pic = db.Column(db.String)
+    

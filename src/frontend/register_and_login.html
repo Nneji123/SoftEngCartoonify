@@ -18,31 +18,33 @@
 	<div class="form-container sign-up-container">
 		<form method="POST" action="/register">
 			<h1>Create Account</h1>
-			<!-- <div class="social-container">
-				<a href="https://github.com/Nneji123" class="social"><i class="fa-brands fa-github"></i></a>
-				<a href="https://twitter.com/Neji_14" class="social"><i class="fa-brands fa-twitter"></i></a>
-				<a href="https://www.linkedin.com/in/ifeanyi-nneji/" class="social"><i class="fa-brands fa-linkedin"></i></a>
-			</div> -->
-			<!-- <span>or use your email for registration</span> -->
+			<div class="social-container">
+				<a href="/register/google" class="social"><i class="fa-brands fa-google"></i></a>
+				<!-- <a href="https://twitter.com/Neji_14" class="social"><i class="fa-brands fa-twitter"></i></a> -->
+				<!-- <a href="https://www.linkedin.com/in/ifeanyi-nneji/" class="social"><i class="fa-brands fa-linkedin"></i></a> -->
+			</div>
+			<span>or use your email for registration</span>
 			<input type="text" name="username" placeholder="Username" />
 			<input type="email" name="email" placeholder="Email" />
 			<input type="password" name="password" placeholder="Password" />
 			<input type="password" name="confirm-password" placeholder="Confirm Password">
-      <p>Already Registered? <a href="/login"> Click Here</a></p>
+      <p id="signInClick" class="ghost">Already Registered? <a href="#"> Click Here</a></p>
       <button type="submit">Register</button>
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
 		<form method="POST" action="/login">
 			<h1>Sign in</h1>
-			<!-- <div class="social-container">
-				<a href="https://github.com/Nneji123" class="social"><i class="fa-brands fa-github"></i></a>
-				<a href="#https://twitter.com/Neji_14" class="social"><i class="fa-brands fa-twitter"></i></a>
-				<a href="https://www.linkedin.com/in/ifeanyi-nneji/" class="social"><i class="fa-brands fa-linkedin"></i></a>
-			</div> -->
-      <input type="text" name="username" placeholder="Username">
+			<div class="social-container">
+				<a href="/login/google" class="social"><i class="fa-brands fa-google"></i></a>
+				<!-- <a href="#https://twitter.com/Neji_14" class="social"><i class="fa-brands fa-twitter"></i></a>
+				<a href="https://www.linkedin.com/in/ifeanyi-nneji/" class="social"><i class="fa-brands fa-linkedin"></i></a> -->
+			</div>
+			<span>or use your username to sign in</span>
+
+      <input type="email" name="email" placeholder="Email">
       <input type="password" name="password" placeholder="Password">
-      <p>Not Registered? <a href="/register"> Click Here</a></p>
+      <p id="signUpClick" class="ghost">Not Registered? <a href="#"> Click Here</a></p>
       <button type="submit">Login</button>
   </form>
 	</div>
@@ -65,7 +67,7 @@
 <footer>
 	<p>
 		Created with <i class="fa fa-heart"></i> by
-		<a target="_blank" href="https://florin-pop.com">Group C 500L Computer Engineering.</a>
+		<a target="_blank" href="https://github.com/Nneji123">Group C 500L Computer Engineering.</a>
 		You can find the project files and documentation
 		<a target="_blank" href="https://github.com/Nneji123/SoftEngCartoonify">here</a>.
 	</p>

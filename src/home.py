@@ -7,12 +7,8 @@ import numpy as np
 from flask import Blueprint, redirect, render_template, request, url_for
 from flask_login import LoginManager, current_user, login_required
 from PIL import Image
-
-from models import Users, db
 from utils import inference
 
-# import sys
-# sys.path.insert(0, './src')
 
 
 home = Blueprint("home", __name__, template_folder="./frontend")
@@ -23,15 +19,11 @@ login_manager.init_app(home)
 @home.route("/home", methods=["GET"])
 @login_required
 def show():
-    """
-    The show function renders the home.html template, which is used to display the home page of this web application.
-
-    Args:
-
-    Returns:
-        A string of html code
-    """
-    return render_template("home.html")
+    
+    if current_user.is_authenticated:
+        return render_template("home.html")
+    else:
+        return redirect(url_for("login.show"))
 
 
 @home.route("/upload", methods=["POST"])
