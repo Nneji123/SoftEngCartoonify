@@ -28,4 +28,4 @@ ENV DEBUG value
 
 RUN python init_db.py
 
-CMD python app.py
+CMD gunicorn app:app
