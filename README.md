@@ -63,6 +63,7 @@
 - SQLAlchemy
 - HTML
 - CSS
+- Oauth
 - Javascript
 - Postgres
 - SQLite
@@ -160,6 +161,7 @@ To run the application locally do the following:
 1. Clone this repository to your local machine
 2. Make sure you have python installed. Visit this [link](https://www.python.org/downloads/) for more information on how to install python to your system.
 3. Install the required libraries using pip: `pip install -r requirements.txt`
+
 4. Create a file called `.env` in the root directory of your project. Put the necessary environment variables in this file
     * THIS IS JUST FOR TESTING. Once everything is tested and ready to deploy, you'll move these to environment variables.
     * ADD THIS FILE(`.env`) TO THE .gitignore so you're not putting your environment keys publicly on github!
@@ -167,10 +169,14 @@ To run the application locally do the following:
 **The environment variables needed are listed below**
 ```
 POSTGRES=
-SQLITE="sqlite:///../database.db"
-SECRET_KEY
-DATABASE_MODE
-PORT
+SQLITE=
+SECRET_KEY=
+DATABASE_MODE=
+PORT=
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+GOOGLE_DISCOVERY_URL=https://accounts.google.com/.well-known/openid-configuration
+DEBUG=True
 ```
 
 `Note: If **DATABASE_MODE** is set to **postgres**, a postgres database will be used else an sqlite database will be used.`
@@ -319,6 +325,7 @@ If deploy fails, change the root directory to `src` in the railway application s
 - [x] Update Readme.
 - [x] Update tests.
 - [x] Deploy application to the web.
+- [x] Added support for Google Email Authentication
 
 
 # License :page_with_curl:

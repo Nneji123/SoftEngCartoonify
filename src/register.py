@@ -124,7 +124,7 @@ def show():
         if username and email and password and confirm_password:
             if password == confirm_password:
                 hashed_password = generate_password_hash(password, method="sha256")
-                if not Users.query.get(email) and not GooogleUsers.query.get(email):
+                if not Users.query.get(email) or not GooogleUsers.query.get(email):
                     try:
                         new_user = Users(
                             username=username,
