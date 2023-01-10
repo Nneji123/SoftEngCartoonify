@@ -106,10 +106,14 @@ def show():
         user = Users.query.filter_by(email=email).first()
         if user:
             if check_password_hash(user.password, password):
-                login_user(user)
-                next_page = request.args.get('next')
-                flash("You are logged in.")
-                return redirect(next_page) if next_page else redirect(url_for('home.show'))
+                if user.is_admin:
+                    login_user(user, remember=True)
+                    return redirect(url_for("admin.show"))
+                else:
+                    login_user(user)
+                    next_page = request.args.get('next')
+                    flash("You are logged in.")
+                    return redirect(next_page) if next_page else redirect(url_for('home.show'))
             else:
                 flash("Incorrect password. Please try again.")
                 return redirect(url_for("login.show") + "?error=incorrect-password")

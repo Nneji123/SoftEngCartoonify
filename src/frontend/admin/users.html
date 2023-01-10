@@ -1,0 +1,157 @@
+{% extends "/admin/admin.html" %}
+
+{% block html_attribs %} lang pt_BR="BR"{% endblock %}
+
+{% block title %}Users{% endblock %}
+
+{% block content %}
+<!-- <div class="container"> -->
+    <h3 class="mb-3">Register New User</h3>
+    <div class="card shadow p-3 mb-5 bg-body rounded">
+        <form method="POST" action="/admin/adduser" class="m-3">
+            <div class="row">
+                <div class="col">
+                    <div class="mb-2">
+                        <label for="fieldName" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="fieldName" name="username" required>
+                    </div>
+                </div>
+    
+                <div class="col">
+                    <div class="mb-2">
+                        <label for="fieldPrice" class="form-label">Email</label>
+                        <input type="text" class="form-control" id="fieldPrice" name="email" required>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="mb-2">
+                        <label for="fieldPrice" class="form-label">Password</label>
+                        <input type="text" class="form-control" id="fieldPrice" name="password" required>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="mb-2">
+                        <label for="field_editCategory" class="form-label">Is Admin?</label>
+                        <select id="field_editCategory" class="form-select" required name="is_admin">
+                            <option value="-" selected>Select...</option>
+                            <option value="True">True</option>
+                            <option value="False">False</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col" style="padding-top: 23px;">
+                    <div class="mt-2">
+                        <button id="btnRegister" type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <h3 class="mb-3">View, Edit and Delete registered users</h3>
+    <div class="mt-3">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <th>ID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>
+                        <!-- Button trigger modal -->
+                        <a href="#" data-plate-id="{{ user.id }}" data-bs-toggle="modal" data-bs-target="#modalEditPlate" onclick="loadModalFieldsEditPanel(this)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                                <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                            </svg>
+                            Edit
+                        </a> | 
+                        <a href="/admin/deleteuser/{{ user.id }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                            </svg>
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalEditPlate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <form action="/admin/edituser/" method="POST">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit User Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+
+                        <!-- Plate ID. -->
+                        <span class="mb-2">
+                            <input type="hidden" class="form-control" id="field_editPlateID" name="id">
+                        </span>
+
+                        <div class="mb-2">
+                            <label for="field_editName" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="field_editName" name="new_username" required>
+                        </div>
+
+                        <div class="mb-2">
+                            <label for="field_editName" class="form-label">Email</label>
+                            <input type="text" class="form-control" id="field_editName" name="new_email" required>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="mb-2">
+                                    <label for="field_editCategory" class="form-label">Is Admin?</label>
+                                    <select id="field_editCategory" class="form-select" required name="new_is_admin">
+                                        <option value="-" selected>Select...</option>
+                                        <option value="True">True</option>
+                                        <option value="False">False</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                        Close
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-save" viewBox="0 0 16 16">
+                            <path d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v7.293l2.646-2.647a.5.5 0 0 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 9.293V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z"/>
+                        </svg>
+                        Save changes
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+{% block scripts %}
+    <script src="{{url_for('static', filename='js/plates.js')}}"></script>
+    <script src="{{url_for('static', filename='js/bootstrap.bundle.min.js')}}"></script>
+{% endblock %}
+{% endblock %}

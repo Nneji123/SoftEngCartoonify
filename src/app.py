@@ -2,6 +2,8 @@ import os
 
 import sqlalchemy
 from dotenv import load_dotenv
+from flask_bootstrap import Bootstrap5
+
 from flask import Flask, render_template
 from flask_login import LoginManager
 
@@ -11,12 +13,13 @@ from login import login
 from logout import logout
 from models import Users, db, GooogleUsers
 from register import register
+from admin import admin
 
 load_dotenv()
 
 
 app = Flask(__name__, static_folder="./frontend/static")
-
+bootstrap = Bootstrap5(app)
 
 POSTGRES = os.getenv("POSTGRES")
 SQLITE = os.getenv("SQLITE")
@@ -42,7 +45,7 @@ app.register_blueprint(login)
 app.register_blueprint(logout)
 app.register_blueprint(register)
 app.register_blueprint(home)
-
+app.register_blueprint(admin)
 # login_manager.login_view = 'login'
 
 
@@ -72,4 +75,4 @@ def load_user_user(user_id):
 if __name__ == "__main__":
     # db.drop_all()
     db.create_all()
-    app.run(port=os.getenv("PORT", default=5000),ssl_context='adhoc',  debug=os.getenv("DEBUG", default=True))#  ssl_context='adhoc', 
+    app.run(port=os.getenv("PORT", default=5000), debug=os.getenv("DEBUG", default=True))#  ssl_context='adhoc', 
