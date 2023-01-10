@@ -28,6 +28,18 @@
               <button><a href="/logout">Logout</a></button>
             </div>
         </form>
+
+
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul class="label">
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
 <footer>
 	<p>
 		Created with <i class="fa fa-heart"></i> by

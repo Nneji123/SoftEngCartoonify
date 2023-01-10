@@ -4,8 +4,9 @@ import shutil
 from io import BytesIO
 
 import numpy as np
-from flask import Blueprint, redirect, render_template, request, url_for
+from flask import Blueprint, redirect, render_template, request, url_for, flash
 from flask_login import LoginManager, current_user, login_required
+import PIL
 from PIL import Image
 from utils import inference
 
@@ -50,18 +51,23 @@ def upload_file():
         os.mkdir(f"./static/{str(current_user.id)}")
         try:
             image.save(f"./static/{str(current_user.id)}/{image.filename}")
-        except IsADirectoryError:
-            return render_template(
-                "error.html",
-                e="Please upload a valid image file before clicking upload.",
-            )
-
-        image_b64 = base64.b64encode(image.getvalue()).decode("utf-8")
-
+        except (IsADirectoryError, PIL.UnidentifiedImageError, FileNotFoundError):
+            flash("Please upload a valid image file")
+            shutil.rmtree(f"./static/{str(current_user.id)}/")
+        
+        # resize the uploaded image
+        image_b64 = Image.open(f"./static/{(current_user.id)}/{image.filename}")
+        buffers = BytesIO()
+        image_b64.save(buffers, "PNG")
+        
+        image_b64 = base64.b64encode(buffers.getvalue()).decode("utf-8")
+        
+        
         ref = Image.open(f"./static/{(current_user.id)}/{image.filename}")
         ref = np.asarray(ref)
         inference(ref)
-    except PermissionError:
+    except (PermissionError, PIL.UnidentifiedImageError, FileNotFoundError):
+        flash("Please upload a valid image file")
         return redirect(url_for("home.show") + "?error=permission-denied")
 
     # Car Image

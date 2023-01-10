@@ -81,7 +81,6 @@ def callback():
     user = GooogleUsers.query.filter_by(email=users_email).first()
     if user:
         login_user(user)
-        flash("You are logged in with Google.")
         return redirect(url_for("home.show") + "?success=login-successful")
     else:
         flash("You are not registered with us. Please register first.")
