@@ -2,7 +2,6 @@ import os
 
 import sqlalchemy
 from dotenv import load_dotenv
-from flask_bootstrap import Bootstrap5
 
 from flask import Flask, render_template
 from flask_login import LoginManager
@@ -19,7 +18,7 @@ load_dotenv()
 
 
 app = Flask(__name__, static_folder="./frontend/static")
-bootstrap = Bootstrap5(app)
+
 
 POSTGRES = os.getenv("POSTGRES")
 SQLITE = os.getenv("SQLITE")

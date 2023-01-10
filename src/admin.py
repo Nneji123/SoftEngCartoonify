@@ -1,6 +1,5 @@
 from models import Users, db
 from flask import Blueprint, redirect, render_template, request, url_for, flash
-from flask_bootstrap import Bootstrap5
 from flask_login import LoginManager, current_user, login_required
 from werkzeug.security import generate_password_hash
 import sqlalchemy
