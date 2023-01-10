@@ -81,6 +81,7 @@ def callback():
     user = GooogleUsers.query.filter_by(email=users_email).first()
     if user:
         login_user(user)
+        flash("You are logged in with Google.")
         return redirect(url_for("home.show") + "?success=login-successful")
     else:
         flash("You are not registered with us. Please register first.")
@@ -108,11 +109,13 @@ def show():
             if check_password_hash(user.password, password):
                 login_user(user)
                 next_page = request.args.get('next')
+                flash("You are logged in.")
                 return redirect(next_page) if next_page else redirect(url_for('home.show'))
             else:
+                flash("Incorrect password. Please try again.")
                 return redirect(url_for("login.show") + "?error=incorrect-password")
         else:
-            flash*("You are not registered with us. Please register first.")
+            flash("You are not registered with us. Please register first.")
             return redirect(url_for("login.show") + "?error=user-not-found")
     else:
         return render_template("register_and_login.html")
