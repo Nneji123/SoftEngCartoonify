@@ -13,7 +13,7 @@ from logout import logout
 from models import Users, db, GooogleUsers
 from register import register
 from admin import admin
-from init_db import create_user
+from init_db import create_admin()
 
 load_dotenv()
 
@@ -75,5 +75,5 @@ def load_user_user(user_id):
 if __name__ == "__main__":
     # db.drop_all()
     db.create_all()
-    create_user()
+    create_admin()
     app.run(port=os.getenv("PORT", default=5000), debug=os.getenv("DEBUG", default=True))#  ssl_context='adhoc', 
