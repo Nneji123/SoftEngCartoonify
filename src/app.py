@@ -72,6 +72,6 @@ def load_user_user(user_id):
  
 
 if __name__ == "__main__":
-    # db.drop_all()
+    db.drop_all()
     db.create_all()
     app.run(port=os.getenv("PORT", default=5000), debug=os.getenv("DEBUG", default=True))#  ssl_context='adhoc', 
