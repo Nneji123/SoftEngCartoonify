@@ -13,7 +13,7 @@ from logout import logout
 from models import Users, db, GooogleUsers
 from register import register
 from admin import admin
-from init_db import create_admin()
+from init_db import create_admin
 
 load_dotenv()
 
